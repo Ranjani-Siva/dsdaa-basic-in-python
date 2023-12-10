@@ -1,0 +1,65 @@
+class Node:
+  def __init__(self,data):
+    self.data=data
+    self.next=None
+class LinkedList:
+  def __init__(self):
+    self.head = None
+  def append(self, data):
+    new_node=Node(data)
+    if not self.head:
+      self.head = new_node
+    else:
+      current = self.head
+      while current.next:
+         current = current.next
+      current.next = new_node
+class stack:
+   def __init__(self):
+    self.items=[]
+    def push(self, item):
+        self.items.append(item)
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+    def is_empty(self):
+        return len(self.items) == 0
+class Queue:
+   def __init__(self):
+        self.items = []
+   def enqueue(self,item):
+     self.items.insert(0,item)
+   def dequeue(self):
+     if not self.is_empty():
+       return self.items.pop()
+   def is_empty(self):
+     return len(self.items) ==0
+weekday_list=LinkedList()
+weekday_stack=Stack()
+weekday_queue=Queue()
+weekday_list.append("monday")
+weekday_list.append("tuesday")
+weekday_list.append("wednesday")
+weekday_list.append("thursday")
+weekday_list.append("friday")
+weekday_stack.push("Monday")
+weekday_stack.push("Tuesday")
+weekday_stack.push("Wednesday")
+weekday_stack.push("Thursday")
+weekday_stack.push("Friday")
+weekday_queue.enqueue("Monday")
+weekday_queue.enqueue("Tuesday")
+weekday_queue.enqueue("Wednesday")
+weekday_queue.enqueue("Thursday")
+weekday_queue.enqueue("Friday")
+print("Linked List (Append):")
+current = weekday_list.head
+while current:
+    print(current.data)
+    current = current.next
+print("\nStack (Push and Pop):")
+while not weekday_stack.is_empty():
+    print(weekday_stack.pop())
+print("\nQueue (Enqueue and Dequeue):")
+while not weekday_queue.is_empty():
+    print(weekday_queue.dequeue())
