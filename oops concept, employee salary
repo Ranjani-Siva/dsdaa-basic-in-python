@@ -1,0 +1,20 @@
+class Employee:
+  def __init__(self,basic_salary):
+    self.basic_salary = basic_salary
+    self.da = 0.20*basic_salary
+    self.hra = 0.10*basic_salary
+    self.pf = 0.12*basic_salary
+    self.ta = 0.075*basic_salary
+    self.emi = 0.02*basic_salary
+  def calculate_gross_salary(self):
+    gross_salary = self.basic_salary+self.da+self.hra+self.ta
+    return gross_salary
+  def calculate_net_salary(self):
+    net_salary = self.calculate_gross_salary()-self.pf-self.emi
+    return net_salary
+basic_salary = float(input("Enter the basic salary of an employee:"))
+employee = Employee(basic_salary)
+gross_salary = employee.calculate_gross_salary()
+net_salary = employee.calculate_net_salary()
+print(f"Gross Salary:{gross_salary}")
+print(f"Net Salary:{net_salary}")
