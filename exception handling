@@ -1,0 +1,13 @@
+marks=98
+print("Number divide by zero")
+try:
+    a=marks/0
+except ZeroDivisionError:
+    print("Error message : Cannot division by zero")
+x=5
+y='hello'
+print("\nNumber addition with string")
+try:
+    z=x+y
+except TypeError:
+    print("Error message : Cannot add the 'int' and 'str'")
