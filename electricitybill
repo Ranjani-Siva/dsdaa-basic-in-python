@@ -1,0 +1,28 @@
+class ElectricityBill:
+  def __init__(self,units):
+      self.units=units
+  def calculate_bill(self):
+       return()
+class bill1(ElectricityBill):
+  def calculate_bill(self):
+    return self.units*0.50
+class bill2(ElectricityBill):
+  def calculate_bill(self):
+    return 100*0.50 + (self.units-100)*0.75
+class bill3(ElectricityBill):
+  def calculate_bill(self):
+    return 100*0.50 + 100*0.75 + (self.units-200)*1.20
+class bill4(ElectricityBill):
+  def calculate_bill(self):
+    return 100*0.50 + 100*0.75 + 100*1.20 +(self.units-300)*1.50
+units=int(input("Enter the number of units consumed:"))
+if units<=100:
+  bill=bill1(units)
+elif units<=200:
+  bill=bill2(units)
+elif units<=300:
+  bill=bill3(units)
+else:
+  bill=bill4(units)
+total_bill =int(bill.calculate_bill())
+print("Electricity Bill:Rs.",total_bill)
