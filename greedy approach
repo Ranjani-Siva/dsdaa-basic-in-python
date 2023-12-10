@@ -1,0 +1,27 @@
+def cal_distance(point1,point2):
+  x1,y1 = point1
+  x2,y2 = point2
+  return ((x1-x2)** 2 + (y1-y2)**2 )**0.5
+def tot_distance(route,points):
+  distance = 0
+  for i in range (len(route)-1):
+      distance += cal_distance(points[route[i]],points[route[i+1]])
+  distance += cal_distance(points[route[-1]],points[route[0]])
+  return distance
+def greedy_tsp(points):
+  num_points = len (points)
+  if num_points<2:
+     return []
+  current_points = 0
+  unvisited = set(range(1,num_points))
+  tour =[current_points]
+  while unvisited:
+     nearest = min(unvisited,key= lambda p: cal_distance(points[current_points],points[p]))
+     tour.append(nearest)
+     current_points = nearest
+     unvisited.remove(nearest)
+  return tour
+points = [[0,0],[1,2],[3,2],[4,3]]
+optimal_tour = greedy_tsp(points)
+print( 'Optimal tour=',optimal_tour)
+print( 'Optimal distance=',tot_distance(optimal_tour,points))
